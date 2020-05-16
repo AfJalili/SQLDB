@@ -3,11 +3,11 @@ package DAO;
 import java.util.ArrayList;
 
 public interface DAO {
-    public Boolean createTable(Object tableInfo);
-    public Boolean insert(Object insertInfo);
-    public Boolean delete(Object deleteInfo);
-    public Boolean update(Object updateInfo);
-    public ArrayList<Object> find(Object findInfo);
+    public <T> Boolean createTable(T tableInfo);
+    public <T> Boolean insert(T insertInfo);
+    public <T> Boolean delete(T deleteInfo);
+    public <T> Boolean update(T updateInfo);
+    public <T, E> ArrayList<E> find(T findInfo); // I'm not sure how it works!!
 
 
 }

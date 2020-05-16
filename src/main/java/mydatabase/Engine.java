@@ -15,7 +15,7 @@ public class Engine implements DAO {
     private final String DATABASE_PATH = "E:\\projects\\Java\\APcodes\\my_database\\my_database_sources\\";
 
     @Override
-    public Boolean createTable(Object tableInfo) {
+    public <T> Boolean createTable(T tableInfo) {
         TableInfo table = (TableInfo) tableInfo;
         // todo check if it exist already
         if (!makeDirs(table.getTableName())) { return false; }
@@ -68,7 +68,7 @@ public class Engine implements DAO {
     }
 
     @Override
-    public Boolean insert(Object insertInfo) {
+    public <T> Boolean insert(T insertInfo) {
         InsertInfo insert = (InsertInfo) insertInfo;
         //  todo check if table exist
         TableInfo table = getTable(insert.getTableName());
@@ -174,19 +174,21 @@ public class Engine implements DAO {
 
 
     @Override
-    public Boolean delete(Object deleteInfo) {
+    public <T> Boolean delete(T deleteInfo) {
 
         return true;
     }
 
     @Override
-    public Boolean update(Object updateInfo) {
+    public <T> Boolean update(T updateInfo) {
         return null;
     }
 
     @Override
-    public ArrayList<Object> find(Object findInfo) {
+    public <T, E> ArrayList<E> find(T findInfo) {
         return null;
     }
+
+
 
 }
