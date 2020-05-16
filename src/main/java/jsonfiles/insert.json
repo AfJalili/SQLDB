@@ -1,0 +1,9 @@
+{
+  "command" : "INSERT INTO",
+  "tableName" : "testTABLE3",
+  "data" : [
+    "value1",
+    344,
+    true
+  ]
+}

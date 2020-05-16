@@ -1,3 +1,4 @@
+import DAO.DAO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.InsertInfo;
@@ -11,41 +12,16 @@ import java.util.Objects;
 public class Main {
     public static void main(String[] args) {
         System.out.println("this will be my awesome database");
-        Engine engine = new Engine();
+        final String JSON_INPUT_DIR = "E:\\projects\\Java\\APcodes\\my_database\\src\\main\\java\\jsonfiles\\";
+        DAO dao = new Engine();
         ObjectMapper om = new ObjectMapper();
-        String s = "{\n" +
-                "  \"command\" : \"CREATE TABLE\",\n" +
-                "  \"tableName\" : \"test\",\n" +
-                "  \"primaryKeyIndex\" : 2,\n" +
-                "  \"fields\" : [\n" +
-                "    {\n" +
-                "      \"name\" : \"field\",\n" +
-                "      \"dataType\" : \"String(45)\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "    \"name\": \"f2\",\n" +
-                "    \"dataType\" : \"Integer\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"name\": \"f3\",\n" +
-                "      \"dataType\" : \"Boolean\"\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}";
-        String insert = "{\n" +
-                "  \"command\" : \"INSERT INTO\",\n" +
-                "  \"tableName\" : \"test2\",\n" +
-                "  \"data\" : [\n" +
-                "    \"value1\",\n" +
-                "    344,\n" +
-                "    true\n" +
-                "  ]\n" +
-                "}";
+        File newTable_input = new File(JSON_INPUT_DIR + "newTable.json");
+        File insert_input = new File(JSON_INPUT_DIR + "insert.json");
         try {
-//            TableInfo tableInfo = om.readValue(s, TableInfo.class);
-//            System.out.println(engine.createTable(tableInfo));
-            InsertInfo insertInfo = om.readValue(insert, InsertInfo.class);
-            System.out.println(engine.insert(insertInfo));
+            TableInfo tableInfo = om.readValue(newTable_input, TableInfo.class);
+            System.out.println(dao.createTable(tableInfo));
+            InsertInfo insertInfo = om.readValue(insert_input, InsertInfo.class);
+//            System.out.println(dao.insert(insertInfo));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

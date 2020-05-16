@@ -1,0 +1,19 @@
+{
+  "command" : "CREATE TABLE",
+  "tableName" : "testTABLE",
+  "primaryKeyIndex" : 2,
+  "fields" : [
+    {
+      "name" : "field",
+      "dataType" : "String(45)"
+    },
+    {
+      "name": "f2",
+      "dataType" : "Integer"
+    },
+    {
+      "name": "f3",
+      "dataType" : "Boolean"
+    }
+  ]
+}
