@@ -15,7 +15,7 @@ public class Main {
         ObjectMapper om = new ObjectMapper();
         String s = "{\n" +
                 "  \"command\" : \"CREATE TABLE\",\n" +
-                "  \"tableName\" : \"test2\",\n" +
+                "  \"tableName\" : \"test\",\n" +
                 "  \"primaryKeyIndex\" : 2,\n" +
                 "  \"fields\" : [\n" +
                 "    {\n" +
@@ -42,8 +42,8 @@ public class Main {
                 "  ]\n" +
                 "}";
         try {
-            TableInfo tableInfo = om.readValue(s, TableInfo.class);
-            System.out.println(engine.createTable(tableInfo));
+//            TableInfo tableInfo = om.readValue(s, TableInfo.class);
+//            System.out.println(engine.createTable(tableInfo));
             InsertInfo insertInfo = om.readValue(insert, InsertInfo.class);
             System.out.println(engine.insert(insertInfo));
         } catch (IOException e) {
@@ -51,13 +51,6 @@ public class Main {
         }
 
 
-        File file = new File("E:\\projects\\Java\\APcodes\\my_database\\my_database_sources\\test\\data.txt");
-//        try {
-//            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file));
-//            ArrayList<Object> arrayList = (ArrayList<Object>) inputStream.readObject();
-//            System.out.println(arrayList.toString());
-//        } catch (IOException | ClassNotFoundException e) {
-//            System.out.println(e.getMessage());
-//        }
+
     }
 }
